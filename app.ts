@@ -1,36 +1,19 @@
-import { Request, Response, NextFunction } from "express";
+import express, { Request, Response, NextFunction } from "express";
+import path from "path";
 
-const express = require("express");
 const app = express();
 const PORT = 9001;
 
-const newMessageRouter = require("./routes/router");
+const appRouter = require("./routes/router");
 
 app.set("view engine", "ejs");
 
-const messages = [
-  {
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date(),
-  },
-  {
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date(),
-  },
-];
+app.use(express.urlencoded({ extended: true }));
+app.use("/", appRouter);
 
-app.get("/", (req: Request, res: Response) => {
-  res.render("pages/index", { messages: messages });
-});
-
-app.use("/new", newMessageRouter);
-
-// app.get("/new", (req: Request, res: Response) => {
-//   res.render("pages/new");
-// });
+const assetsPaths = path.join(__dirname, "public");
+app.use(express.static(assetsPaths));
 
 app.listen(PORT, () => {
-  console.log(`MMB App listening on port : ${PORT}`);
+  console.log(`M•M•B App listening on port : ${PORT}`);
 });

@@ -1,19 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../styles.css" type="text/css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form</title>
   </head>
 
-  <body>
-    <form action="POST" action="pages/new">
+  <body class="crimson-text-regular">
+    <%- include('../partials/navbar') %>
+
+    <form method="POST" action="/new" class="message-form">
       <h1>Send a message</h1>
 
-      <input type="text" alt="author name" />
-      <input type="text" alt="message />
+      <label for="messageUser" class="crimson-text-semibold">User</label>
+      <input type="text" alt="author name" name="messageUser" class="crimson-text-regular" />
 
-      <button type="submit">Send message</button>
+      <label for="messageText" class="crimson-text-semibold">Message</label>
+      <input type="text" alt="message" name="messageText" class="crimson-text-regular" />
+
+      <button type="submit" class="crimson-text-semibold submit-button">
+        Send message
+      </button>
     </form>
   </body>
 </html>
