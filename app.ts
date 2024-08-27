@@ -1,16 +1,24 @@
 import express, { Request, Response, NextFunction } from "express";
-import path from "path";
+import path, {dirname} from "path";
+import { fileURLToPath, URL } from 'url';
+
+import {router} from "./routes/router";
+
 
 const app = express();
 const PORT = 9001;
 
-const appRouter = require("./routes/router");
 
 app.set("view engine", "ejs");
 
 app.use(express.urlencoded({ extended: true }));
-app.use("/", appRouter);
+app.use("/", router);
 
+function getDirname(importMetaUrl: string | URL) {
+  const filename = fileURLToPath(importMetaUrl);
+  return dirname(filename);
+}
+const __dirname = getDirname(import.meta.url)
 const assetsPaths = path.join(__dirname, "public");
 app.use(express.static(assetsPaths));
 

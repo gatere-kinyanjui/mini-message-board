@@ -1,13 +1,14 @@
 {
   "name": "mini-message-board",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "app.ts",
   "engines": {
     "node": "18"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "npx tsx app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,6 +27,7 @@
     "@types/node": "^22.4.1",
     "eslint": "^9.9.0",
     "ts-node-dev": "^2.0.0",
+    "tsx": "^4.19.0",
     "typescript": "^5.5.4"
   },
   "dependencies": {

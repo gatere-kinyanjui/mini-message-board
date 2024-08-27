@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction, Router } from "express";
+import express from "express";
 
-const express = require("express");
-const router: Router = express.Router();
+export const router: Router = express.Router();
 
 const messages = [
   {
@@ -31,4 +31,4 @@ router.post("/new", (req: Request, res: Response) => {
   res.redirect("/");
 });
 
-module.exports = router;
+// module.exports = router;
