@@ -6,7 +6,7 @@ import {router} from "./routes/router";
 
 
 const app = express();
-const PORT = 9001;
+const port = 9001;
 
 
 app.set("view engine", "ejs");
@@ -22,6 +22,6 @@ const __dirname = getDirname(import.meta.url)
 const assetsPaths = path.join(__dirname, "public");
 app.use(express.static(assetsPaths));
 
-app.listen(PORT, () => {
-  console.log(`M•M•B App listening on port : ${PORT}`);
+app.listen(port, () => {
+  console.log(`M•M•B App listening on port : ${port}`);
 });
