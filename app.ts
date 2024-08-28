@@ -6,7 +6,7 @@ import {router} from "./routes/router";
 
 
 const app = express();
-const port = 9001;
+const port = 8000;
 
 
 app.set("view engine", "ejs");
